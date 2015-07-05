@@ -6,13 +6,21 @@ This would be very easy to write in C# / MVC. I guess most people do this. So to
 
 If an implentation in C# / MVC is important to you (using validation attributes in view models, HTML helpers, NUnit tests, Selenium UI tests, etc.), I could do that as well.
 
+I included the .js and .css files for AngularJs, jQuery and Bootstrap in the solution rather than using a CDN. This to reduce the number of failure points for this demo. CDN failure can be dealt with by code that falls back to a different CDN and then to the solution itself, but I wanted to keep it simple.
+
+I included the node_modules folders in source control to save you the hassle of loading them yourself. Normally I would exclude them, similar to the NuGet packages.
+
 #Running the site#
 
-* Grab the zip file from this repo and unzip in a clean folder. Use a short folder path such as `C:\Tests\MattPerdeck`. The test frameworks used in this project are Node based, and node_modules can create very deep folder structures (normally you wouldn't put them in source control, but I wanted to save you the hassle of loading them).
+(You may have noticed that I used 1) 2) etc. for list numbering, rather than 1. 2. as used in Markdown. Problem with the Markdown is that it resets the numbers after a code block. So consistently using non-Markdown numbering).
 
-* Load the `Numbers.sln` solution file in Visual Studio (I used Visual Studio 2013).
+1) Grab the zip file from this repo and unzip in a clean folder. Use a short folder path such as `C:\Tests\MattPerdeck`. The test frameworks used in this project are Node based, and node_modules can create very deep folder structures (normally you wouldn't put them in source control, but I wanted to save you the hassle of loading them).
 
-* Hit F5 to run the site. End user instructions are on the page.
+2) Load the `Numbers.sln` solution file in Visual Studio (I used Visual Studio 2013).
+
+3) Rebuild Solution.
+
+4) Hit F5 to run the site. End user instructions are on the page.
 
 #Running the unit tests#
 
