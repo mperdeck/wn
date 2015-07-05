@@ -1,0 +1,127 @@
+﻿
+@*
+This code assumes a simple Single Page Application, where the entire site
+consists of a single page. In that case, there is no need for a _Layout.cshtml file, etc.
+*@
+
+@{
+    // Define the page title in 1 place (DRY).
+    // It is used in the page title and page heading.
+    ViewBag.Title = "Numbers Generator";
+}
+
+<!DOCTYPE html>
+<html ng-app="numbersApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/bootstrap")
+
+    @*    
+    Using ng-cloak to prevent flash of uncompiled content when the page loads.
+    To make that work, the ng-cloak classes below need to be active when the page loads.
+    So putting them on the page itself, rather than in a .css file (which can be delayed).
+    See https://docs.angularjs.org/api/ng/directive/ngCloak
+    *@
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak 
+        {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-controller="numbersCtrl">
+    @*Bootstrap styling*@
+    <div class="container">
+    <div class="row">
+    <div class=".col-xs-12">
+
+    <h1>@ViewBag.Title</h1>
+
+    @*
+    For a form tag without action or method, @Html.BeginForm isn't appropriate.
+    So using simple HTML form tag.
+    *@
+
+    <h2>Input</h2>
+
+    <form name="number_form" novalidate>
+
+        <p id="help-block" class="help-block">
+            Type a whole number equal to or greater than 1 in the box below. You can also use the up and down arrows.
+            As soon as you make a change, the numeric sequences below the box will be updated right away.
+        </p>
+
+        @*
+        0 is neither positive or negative. The spec says to use positive numbers only. So setting min to 1.
+        See http://mathforum.org/library/drmath/view/58735.html
+
+        Using type=number to get nice up and down widgets. However, this control thinks that a whole number with one trailing period
+        such as 55. is still a whole number (it ignores the period), and it doesn't pass on the trailing period to angular.
+        Decided that not showing a "enter a whole number" error message when someone enters one trailing period to an integer 
+        would be an acceptable trade off. 
+        *@
+
+        <div class="form-group" ng-class="{ 'has-error': number_form.user_input.$invalid }">
+            <label class="control-label" for="user-input">Enter integer:</label>
+
+            <div class="row">
+                <div class="col-xs-3 col-sm-2 col-md-3">
+                    <input type="number" class="form-control" name="user_input" id="user-input" min="1" required 
+                        ng-model="userInput" pattern="^\d+$" ng-change="userInputChanged()" aria-describedby="help-block" />
+                </div>
+                <div class="col-xs-9 col-sm-10 col-md-9">
+                </div>
+            </div>
+
+            <div class="ng-cloak">
+                 <p class="text-danger" id="error-required" ng-show="number_form.user_input.$error.required">required field</p>
+
+                 <p class="text-danger" id="error-atleastone" ng-show="number_form.user_input.$error.min">must be 1 or higher</p>
+
+                 <p class="text-danger" id="error-digitsonly" ng-show="number_form.user_input.$error.number">only enter digits</p>
+
+                 <p class="text-danger" id="error-wholenumber" ng-show="number_form.user_input.$error.pattern">enter a whole number</p>
+            </div>
+        </div>
+    </form>
+
+    <div class="ng-cloak">
+        <h2>All</h2>
+        <p><wn-sequence sequence="allNumbers" id="sequence-all" /></p>
+
+        <h2>Odd</h2>
+        <p><wn-sequence sequence="oddNumbers" id="sequence-odd" /></p>
+
+        <h2>Even</h2>
+        <p><wn-sequence sequence="evenNumbers" id="sequence-even" /></p>
+
+        <h2>Extended Fizz Buzz</h2>
+        <p><wn-sequence sequence="extendedFizzBuzz" id="sequence-extendedfizzbuzz" /></p>
+
+        <h2>Fibonacci</h2>
+        <p><wn-sequence sequence="fibonacci" id="sequence-fibonacci" /></p>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    @*
+    Place script tags at bottom of the page, so page rendering isn't blocked by
+    loading of the js files. See:
+    https://docs.angularjs.org/guide/bootstrap#angular-script-tag
+
+    Could have loaded AngularJs and jQuery from for example the Google CDN (https://developers.google.com/speed/libraries/).
+    You could include code that deals with CDN failure by loading from another CDN or from the local site. 
+    However, for this coding test that will run locally, loading a local copy is simpler and faster.
+    *@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/numbers")
+</body>
+</html>
+
