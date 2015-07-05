@@ -8,13 +8,11 @@ If an implentation in C# / MVC is important to you (using validation attributes 
 
 I included the .js and .css files for AngularJs, jQuery and Bootstrap in the solution rather than using a CDN. This to reduce the number of failure points for this demo. CDN failure can be dealt with by code that falls back to a different CDN and then to the solution itself, but I wanted to keep it simple.
 
-I included the node_modules folders in source control to save you the hassle of loading them yourself. Normally I would exclude them, similar to the NuGet packages.
-
 #Running the site#
 
-(You may have noticed that I used 1) 2) etc. for list numbering, rather than 1. 2. as used in Markdown. Problem with the Markdown is that it resets the numbers after a code block. So consistently using non-Markdown numbering).
+(You may have noticed that I used 1) 2) etc. for list numbering, rather than 1. 2. as used in Markdown. Problem with the Markdown is that it resets the numbers after a code block. So consistently using non-Markdown numbering here).
 
-1) Grab the zip file from this repo and unzip in a clean folder. Use a short folder path such as `C:\Tests\MattPerdeck`. The test frameworks used in this project are Node based, and node_modules can create very deep folder structures (normally you wouldn't put them in source control, but I wanted to save you the hassle of loading them).
+1) Grab the zip file from this repo and unzip in a clean folder. Use a short folder path such as `C:\Tests\MattPerdeck`. The test frameworks used in this project are Node based, and node_modules can create very deep folder structures.
 
 2) Load the `Numbers.sln` solution file in Visual Studio (I used Visual Studio 2013).
 
@@ -39,12 +37,17 @@ node --version
 
 2) On the command line, go to the folder with the `Numbers.sln` file.
 
-3) Change to the folder with the unit tests:
+3) Install the required Node modules:
+```
+npm install
+```
+
+4) Change to the folder with the unit tests:
 ```
 cd Numbers\Scripts\app\unittests
 ```
 
-4)
+5)
 Run the unit tests. These will take a while because they run in browsers. The results will be in the command window:
 ```
 ..\..\..\..\node_modules\.bin\karma start karma.config.js
