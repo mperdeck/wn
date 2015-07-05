@@ -30,7 +30,7 @@ These are writting in [Jasmine](http://jasmine.github.io/edge/introduction.html)
 
 **Instructions**
 
-1) [Install Node](https://nodejs.org/). The tests require Node.js version v0.10.0 or better. To check your version, from the command line run:
+1) [Install Node](https://nodejs.org/). The tests require Node.js version v0.10.0 or better. If you already have Node installed, to check your version run this from the command line:
 ```
 node --version
 ```
