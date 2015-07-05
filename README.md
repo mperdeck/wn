@@ -24,14 +24,14 @@ These are writting in [Jasmine](http://jasmine.github.io/edge/introduction.html)
 
 **Instructions**
 
-1. [Install Node](https://nodejs.org/). The tests require Node.js version v0.10.0 or better. To check your version, from the command line run:
+1) [Install Node](https://nodejs.org/). The tests require Node.js version v0.10.0 or better. To check your version, from the command line run:
 ```
 node --version
 ```
 
-2. On the command line, go to the folder with the `Numbers.sln` file.
+2) On the command line, go to the folder with the `Numbers.sln` file.
 
-3. Change to the folder with the unit tests:
+3) Change to the folder with the unit tests:
 ```
 cd Numbers\Scripts\app\unittests
 ```
@@ -48,36 +48,36 @@ Also writting in [Jasmine](http://jasmine.github.io/edge/introduction.html). Run
 
 **Instructions**
 
-1. The Selenium Server requires the Java Development Kit (JDK). [Installation page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). To check if the JDK is installed, run
+1) The Selenium Server requires the Java Development Kit (JDK). [Installation page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). To check if the JDK is installed, run
 ```
 java -version
 ```
 
-2. Install Protractor and the Webdriver manager:
+2) Install Protractor and the Webdriver manager:
 ```
 npm install -g protractor
 ```
 
-3. Download binaries for the Selenium Server:
+3) Download binaries for the Selenium Server:
 ```
 webdriver-manager update
 ```
 
-4. Open a second command window.
+4) Open a second command window.
 
-5. In this second command window, run the Selenium Server (it will keep running unless you stop it):
+5) In this second command window, run the Selenium Server (it will keep running unless you stop it):
 ```
 webdriver-manager start
 ```
 
-6. Go back to your first command window. It should still be at the `unittest` folder. Go to the uitests folder:
+6) Go back to your first command window. It should still be at the `unittest` folder. Go to the uitests folder:
 ```
 cd ..\uitests
 ```
 
-7. Make sure that the site is running (in Visual Studio, hit F5).
+7) Make sure that the site is running (in Visual Studio, hit F5).
 
-8. Run the UI tests:
+8) Run the UI tests:
 ```
 protractor protractor.config.js
 ```
