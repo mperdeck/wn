@@ -18,7 +18,7 @@ If an implentation in C# / MVC is important to you (using validation attributes 
 
 These are writting in [Jasmine](http://jasmine.github.io/edge/introduction.html). The test runner is [Karma](http://karma-runner.github.io/0.12/index.html), which is written by the people behind AngularJs. Within the solution, they live in `Scripts\app\unittests`.
 
-* CI: I assume you use TeamCity: ([Karma integration with TeamCity](http://stackoverflow.com/questions/16343543/how-to-integrate-karma-with-teamcity).
+* CI: I assume you use TeamCity: [Karma integration with TeamCity](http://stackoverflow.com/questions/16343543/how-to-integrate-karma-with-teamcity).
 
 * Development experience: There are several Karma test adapters available for Visual Studio.
 
@@ -44,7 +44,7 @@ Run the unit tests. These will take a while because they run in browsers. The re
 
 #Running the UI tests#
 
-Also writting in [Jasmine](http://jasmine.github.io/edge/introduction.html). Run using [Protractor](http://angular.github.io/protractor/#/), which is by the same crew as AngularJs. It uses a Selenium Server under the hood. The actual UI tests are in `Scripts\app\uitests`. [Integration with TeamCity](https://www.committedcoder.com/report-protractor-test-results-on-teamcity.html)
+Also writting in [Jasmine](http://jasmine.github.io/edge/introduction.html). Run using [Protractor](http://angular.github.io/protractor/#/), which is by the same crew as AngularJs. It uses a Selenium Server under the hood. The actual UI tests are in `Scripts\app\uitests`. [Integration with TeamCity](https://www.committedcoder.com/report-protractor-test-results-on-teamcity.html).
 
 **Instructions**
 
